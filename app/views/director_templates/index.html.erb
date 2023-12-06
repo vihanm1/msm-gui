@@ -2,24 +2,45 @@
   List of all directors
 </h1>
 
-<form action = "/insert_director"  method = "post">
+<hr>
+
+<form action="/insert_director" method="post">
   <div>
-  <label for = "director_field">Name</label>
-  <input id = "director_field" type ="text" name ="the_director">
-  </div><div>
-  <label for = "dob_field">DOB</label>
-  <input id = "dob_field" type ="text" name ="the_dob">
-  </div><div>
-  <label for = "bio_field">Bio</label>
-  <input id = "bio_field" type ="text" name ="the_bio">
-  </div><div>
-  <label for = "image_field">Image</label>
-  <input id = "image_field" type ="text" name ="the_image">
-  </div><div>
+    <label for="name_box">
+      Name
+    </label>
 
-  <button type="submit">Create director</button>
+    <input type="text" id="name_box" name="query_name">
+  </div>
+
+  <div>
+    <label for="dob_box">
+      Dob
+    </label>
+
+    <input type="date" id="dob_box" name="query_dob">
+  </div>
+
+  <div>
+    <label for="bio_box">
+      Bio
+    </label>
+
+    <textarea id="bio_box" name="query_bio" rows="3"></textarea>
+  </div>
+
+  <div>
+    <label for="image_box">
+      Image
+    </label>
+
+    <input type="text" id="image_box" name="query_image">
+  </div>
+
+  <button>
+    Create director
+  </button>
 </form>
-
 
 <hr>
 
@@ -38,33 +59,33 @@
     </th>
 
     <th>
-      DOB
+      Dob
     </th>
 
     <th>
     </th>
   </tr>
 
-  <% @list_of_directors.each do |an_director| %>
+  <% @list_of_directors.each do |director| %>
   <tr>
     <td>
-      <%= an_director.id %>
+      <%= director.id %>
     </td>
 
     <td>
-      <img src="<%= an_director.image %>" style="width:250px;">
+      <img src="<%= director.image %>" style="width:250px;">
     </td>
 
     <td>
-      <%= an_director.name %>
+      <%= director.name %>
     </td>
 
     <td>
-      <%= an_director.dob %>
+      <%= director.dob %>
     </td>
 
     <td>
-      <a href="/directors/<%= an_director.id %>">
+      <a href="/directors/<%= director.id %>">
         Show details
       </a>
     </td>
